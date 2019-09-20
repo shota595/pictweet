@@ -1,0 +1,8 @@
+<% @posts.each do |post| %>
+  <%= post.image %>
+  <%= post.title %>
+    <%= link_to user_path(post.user_id) do %>
+    <%= post.label "投稿者" %>
+    <%= @user.name %>
+  <% end %>
+<% end %>
