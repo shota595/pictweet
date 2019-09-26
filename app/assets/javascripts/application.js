@@ -16,3 +16,19 @@
 //= require_tree .
 //= require jquery
 //= require bootstrap-sprockets
+
+$('#menus').hover(function() {
+  $(this).children('ul').show();
+}, function() {
+  $(this).children('ul').hide();
+});
+
+$(function() {
+  $(document).on("ajax:success", ".fav", function(e) {
+    if ($('#' + e.detail[0]).hasClass('fa-heart')) {
+      $('#' + e.detail[0]).removeClass('fa-heart').addClass('ha-heart-o');
+    } else {
+      $('#' + e.detail[0]).removeClass('fa-heart-o').addClass('fa-heart');
+    }
+  })
+})

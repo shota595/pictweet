@@ -1,8 +1,25 @@
 <% @posts.each do |post| %>
-  <%= post.image %>
-  <%= post.title %>
-    <%= link_to user_path(post.user_id) do %>
-    <%= post.label "投稿者" %>
-    <%= @user.name %>
-  <% end %>
+<div class="tweet">
+  <div class="pic">
+    <%= attachment_image_tag post, :post_image, format: "jpeg", size: "460x300", class: "blue-frame" %>
+  </div>
+  <div class="contents">
+    <div class="content">
+      <%= post.body %>
+    </div>
+    <div class="user-name clearfix">
+      <%= link_to user_path(post.user.id) do %>
+        <div class="user-pic"><%= attachment_image_tag post.user, :profile_image, format: "jpeg", fallback: "no_image.jpg",  size: "30x30" %></div>
+        <div class="user-link">
+          <label>投稿者</label><br>
+          <%= post.user.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="iine-btn" id="<%= post.id %>">
+    <%= render 'favorites/favorite', post: post %>
+  </div>
+</div>
 <% end %>
+<%= paginate @posts, class: "paginate" %>

@@ -1,3 +1,61 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.pf-user-name {
+  color: #ffff55;
+  font-size: 40px;
+
+}
+.profile {
+  width: 400px;
+  margin: 0 auto;
+
+}
+.contents {
+  top: 220px;
+  height: 80px;
+}
+
+.pf-contents img {
+  margin-left: 100px;
+  border-radius: 50%;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  object-fit: cover;
+}
+.pf-contents a {
+  margin-left: 50px;
+}
+.profile-edit-btn {
+  display: inline-block;
+  width: 292px;
+  height: 33px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: #fafafa;
+  padding-top: 8px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+.profile-edit-btn:hover {
+  background-color: #ccc;
+}
+.intro {
+  width: 400px;
+  color: #fff;
+  font-size: 20px;
+  word-wrap: break-word;
+}
+.edit-form {
+  color: #00bb00;
+  font-size: 25px;
+  margin-top: 15px;
+}
+.edit-title {
+  color: #00bb00;
+  margin-bottom: 60px;
+}

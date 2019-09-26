@@ -1,3 +1,76 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tweet {
+  width: 460px;
+  display: inline-flex;
+  margin-left: 25px;
+}
+
+.pic {
+  position: absolute;
+}
+.pic img {
+  width: 460px;
+  object-fit: cover;
+}
+.tweet {
+  margin-top: 50px;
+  height: 300px;
+}
+.contents {
+  width: 500px;
+  position: relative;
+  top: 250px;
+}
+.content {
+  float: left;
+  padding-left: 30px;
+  color: #fff;
+}
+.content p {
+  color: #fff;
+}
+.user-name {
+  float: right;
+  padding-right: 20px;
+}
+.user-name a {
+  color: #fff;
+
+}
+.blue-frame {
+  display: inline-block;
+  padding: 4px;
+  margin:0 0.5rem 1rem 0.5rem;
+  background-color: #fff;
+  line-height: 0;
+  -webkit-border-radius:6px;
+  -moz-border-radius:6px;
+  -ms-border-radius:6px;
+  -o-border-radius:6px;
+  bordr-radius: 6px;
+}
+.blue-frame:hover {
+  background-color: #4ae;
+}
+.user-pic {
+  float: left;
+  padding-top: 5px;
+  margin-right: 5px;
+}
+.user-pic img {
+  border-radius: 50%;
+}
+.user-link {
+  float: left;
+}
+.iine-btn {
+  width: 60px;
+  height: 30px;
+  font-size: 20px;
+  position: relative;
+  top: 10px;
+  color: green;
+}

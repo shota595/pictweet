@@ -1,11 +1,16 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all
-    @user = User.find(params[:post.user_id])
+    @posts     = Post.page(params[:page]).reverse_order.order(created_at: :desc).all
+    # @user    = User.find(params[:id])
+    # user       = User.find(params[:id])
+
+    @user = current_user
+    @favorite = Favorite.new
   end
 
   def show
     @post = Post.find(params[:id])
+
   end
 
   def new
@@ -13,9 +18,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    @post.save(post_params)
-    redirect_to
+    @post              = Post.new(post_params)
+    @post.user_id = current_user.id
+    if @post.save
+       redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -25,5 +34,10 @@ class PostsController < ApplicationController
   end
 
   def destroy
+  end
+
+
+  def post_params
+    params.require(:post).permit(:user, :body, :post_image)
   end
 end
