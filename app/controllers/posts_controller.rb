@@ -9,8 +9,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    @posts     = Post.all
     @post = Post.find(params[:id])
-
+    @post_comments = @post.post_comments.order(created_at: :desc).all
+    @post_comment = PostComment.new
   end
 
   def new

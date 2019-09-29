@@ -6,6 +6,41 @@
     <% if @user == current_user %>
       <%= link_to "プロフィール編集",  edit_user_path(@user.id), class: "profile-edit-btn" %>
     <% end %>
+
+    <ul class="clearfix">
+      <li class="follow-button">
+        <% if current_user != @user %>
+          <% if @user.followed_by?(current_user) %>
+            <%= link_to user_relationships_path(@user.id), method: :delete do %>
+              <button type="button" class="btn btn-secondary">
+                unfollow
+              </button>
+            <% end %>
+          <% else %>
+            <%= link_to user_relationships_path(@user.id), method: :post do %>
+              <button type="button" class="btn btn-primary">
+                follow
+              </button>
+            <% end %>
+          <% end %>
+        <% end %>
+      </li>
+      <li class="followers">
+        <%= link_to followers_path(@user.id) do %>
+          <button type="button" class="btn btn-primary">
+            <strong><%= @user.followers.count %></strong> followers
+          </button>
+        <% end %>
+      </li>
+      <li class="followings">
+        <%= link_to followings_path(@user.id) do %>
+          <button type="button" class="btn btn-info">
+            <strong><%= @user.followings.count %></strong> following
+          </button>
+        <% end %>
+      </li>
+    </ul>
+
   </div>
 </div>
 
@@ -14,7 +49,9 @@
 <% @posts.each do |post| %>
 <div class="tweet">
   <div class="pic">
-    <%= attachment_image_tag post, :post_image, format: "jpeg", size: "500x300", class: "blue-frame" %>
+    <%= link_to post_path(post.id) do %>
+      <%= attachment_image_tag post, :post_image, format: "jpeg", size: "500x300", class: "blue-frame" %>
+    <% end %>
   </div>
   <div class="contents">
     <div class="content">

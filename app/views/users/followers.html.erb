@@ -1,0 +1,32 @@
+<h1 class="followers-title"><%= @user.name %>  Follewer一覧</h1>
+
+<hr>
+<% @user.followers.each do |user| %>
+<div class="follower-users">
+  <%= link_to user_path(user.id) do %>
+    <div class="follewer-pic">
+      <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '100x100' %>
+    </div>
+    <div class="follower-name">
+      <%= user.name %>
+    </div>
+  <% end %>
+
+  <% if current_user != @user %>
+    <% if @user.followed_by?(current_user) %>
+      <%= link_to user_relationships_path(@user.id), method: :delete do %>
+        <button type="button" class="btn btn-secondary">
+          unfollow
+        </button>
+      <% end %>
+    <% else %>
+      <%= link_to user_relationships_path(@user.id), method: :post do %>
+        <button type="button" class="btn btn-primary">
+          follow
+        </button>
+      <% end %>
+    <% end %>
+  <% end %>
+
+</div>
+<% end %>

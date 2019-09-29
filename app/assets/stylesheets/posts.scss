@@ -7,13 +7,17 @@
   display: inline-flex;
   margin-left: 25px;
 }
-
+img {
+  object-fit: cover;
+}
+.user-pic img {
+  border-radius: 50%;
+}
 .pic {
   position: absolute;
 }
 .pic img {
   width: 460px;
-  object-fit: cover;
 }
 .tweet {
   margin-top: 50px;
@@ -23,6 +27,7 @@
   width: 500px;
   position: relative;
   top: 250px;
+  z-index: 10;
 }
 .content {
   float: left;
@@ -34,7 +39,7 @@
 }
 .user-name {
   float: right;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 .user-name a {
   color: #fff;
@@ -60,9 +65,7 @@
   padding-top: 5px;
   margin-right: 5px;
 }
-.user-pic img {
-  border-radius: 50%;
-}
+
 .user-link {
   float: left;
 }
@@ -73,4 +76,71 @@
   position: relative;
   top: 10px;
   color: green;
+}
+
+
+// show
+
+.show-container {
+  margin-top: 100px;
+  text-align: center;
+}
+.show-page {
+  width: 100%;
+  padding: auto 0;
+}
+.show-profile {
+  text-align: left;
+  padding-left: 140px;
+  width: 100%;
+  color: #fff;
+  font-size: 25px;
+}
+
+.post-pic {
+  display: inline-block;
+  height: 800px;
+}
+.post-pic img {
+  height: 100%;
+}
+
+
+// comment
+
+
+.user-comment {
+  padding-left: 245px;
+  margin-top: 15px;
+}
+.user-comment textarea {
+  width: 400px;
+}
+.comment-right {
+  color: #fff;
+}
+
+.comment-left a {
+  font-size: 35px;
+  color: #fff;
+}
+.comment-right {
+  font-size: 18px;
+  height: 85px;
+  word-break: break-all;
+}
+.delete-btn a {
+  display: block;
+}
+.delete-btn {
+  margin-top: 30px;
+}
+.comment-each {
+  border: 3px solid #4ae;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.created-day {
+  color: #fff;
 }

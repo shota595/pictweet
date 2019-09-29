@@ -1,0 +1,25 @@
+  <div class="container comment-each">
+    <div class="row">
+      <div class="comment-left user-pic col-lg-2">
+        <%= link_to user_path(comment.user.id) do %>
+          <%= attachment_image_tag comment.user, :profile_image, format: 'jpeg', fallback: 'no_image.jpg', size: '80x80' %>
+          <%= comment.user.name %>
+        <% end %>
+      </div>
+      <div class="comment-right col-lg-7">
+        <%= comment.comment %>
+      </div>
+      <div class="col-lg-2">
+        <% if current_user == post.user || comment.user_id == current_user.id %>
+        <button type='button', class="delete-btn">
+          <%= link_to "削除", post_post_comment_path(post_id:post.id, id:comment.id), method: :delete, data: {confirm: 'このコメントを削除しますか？'} %>
+        </button>
+        <% end %>
+        <div class="created-day">
+          <span><%= time_ago_in_words(comment.created_at) %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col-lg-offset-4"></div> -->

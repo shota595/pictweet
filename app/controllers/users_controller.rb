@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def show
     @user   = User.find(params[:id])
-    @posts  = @user.posts.all
+    @posts  = @user.posts.order(created_at: :desc).all
+    @follow = Relationship.new
   end
 
   def edit
@@ -18,6 +19,14 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def followers
+    @user = User.find(params[:id])
+  end
+
+  def followings
+    @user = User.find(params[:id])
   end
 
   private
